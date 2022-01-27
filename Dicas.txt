@@ -10,4 +10,7 @@ SkynexUI é uma biblioteca de objetos bonitos para o site.
 Os componentes, estados e controles são as palavras chaves.
 Todo o inpute no site altera o estado da pagina, o react precisa saber oque pode e não pode alterar o estado.
 
+Desfio 1: Entender o useStates, onSubmite, os componenetes e como funciona os Beholders
 
+Desefio 2: Se o campo tiver -2 caracterares a imagem não é alterada, Dica: Cirar a variavel e passar para o botão.
+Desfio 3: Customisar; pusar outras imagens e trabalhar com as Apis para trazer o Jason e mostrar alguma imagem maneira.
