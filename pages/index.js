@@ -1,5 +1,6 @@
 import { Box, Button, Text, TextField, Image } from '@skynexui/components';
 import appConfig from '../config.json';
+import React from 'react';
 
 function GlobalStyle() {
   return (
@@ -60,7 +61,12 @@ function Titulo(props) {
 // export default HomePage
 
 export default function PaginaInicial() {
-  const username = 'peas';
+  //const username = 'Bernardoaugustot';  
+  // Prcisamos trabalhar na variavel para ela ser mutavel, caso contrario o react não entende que o estado do value mude.
+  const [username, setUsername] = React.useState('teste'); //Essa porra é importante
+  // Essa porra [username, setUsername] quer dizer [Oque esta mudando, Quem eu devo Avisar que as coisa mudaram]
+  // Termo de Observer = Observadores = Beholder
+  // *Importar o React Né campeão
 
   return (
     <>
@@ -100,8 +106,30 @@ export default function PaginaInicial() {
             <Text variant="body3" styleSheet={{ marginBottom: '32px', color: appConfig.theme.colors.neutrals[300] }}>
               {appConfig.name}
             </Text>
-
+            
+            {/* <input
+              typer="texte"
+              value={username}
+              onChange={ function(event){
+                console.log('usuario digitio',event.target.value);
+                // Trocar o valor
+                const valor = event.target.value
+                // Valore entrara, como value do imput
+                //Trocando os valores atravez do React, e avisando so Beholders
+                setUsername(valor);
+              }}
+            /> */}
+ 
             <TextField
+             value={username}
+             onChange={ function(event){
+               console.log('usuario digitio',event.target.value);
+               // Trocar o valor
+               const valor = event.target.value
+               // Valore entrara, como value do imput
+               //Trocando os valores atravez do React, e avisando so Beholders
+               setUsername(valor);
+             }}
               fullWidth
               textFieldColors={{
                 neutral: {
@@ -111,7 +139,7 @@ export default function PaginaInicial() {
                   backgroundColor: appConfig.theme.colors.neutrals[800],
                 },
               }}
-            />
+            /> 
             <Button
               type='submit'
               label='Entrar'
@@ -149,6 +177,7 @@ export default function PaginaInicial() {
                 marginBottom: '16px',
               }}
               src={`https://github.com/${username}.png`}
+              //src={`https://media.gazetadopovo.com.br/viver-bem/2018/11/dog3-600x459-0e01be20.jpg`}
             />
             <Text
               variant="body4"

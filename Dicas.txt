@@ -1,0 +1,13 @@
+3 Aula 1 - basico das cores e formas
+https://coolors.co/ #Site de cores bonitas
+SkynexUI é uma biblioteca de objetos bonitos para o site.
+ > yarn add @skynexui/components
+
+ # Aula 2 - States, novas paginas e navegação.
+ Objetivo é configurar os inputes da pagina
+
+! Value e imputes no react precisão de tratamento especial para o sistema entender.
+Os componentes, estados e controles são as palavras chaves.
+Todo o inpute no site altera o estado da pagina, o react precisa saber oque pode e não pode alterar o estado.
+
+
