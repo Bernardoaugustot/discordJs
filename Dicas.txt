@@ -14,3 +14,12 @@ Desfio 1: Entender o useStates, onSubmite, os componenetes e como funciona os Be
 
 Desefio 2: Se o campo tiver -2 caracterares a imagem não é alterada, Dica: Cirar a variavel e passar para o botão.
 Desfio 3: Customisar; pusar outras imagens e trabalhar com as Apis para trazer o Jason e mostrar alguma imagem maneira.
+
+# Aula 3 
+- Vamos usar o onChange usa o useState (Detectar quando der enter)
+- Depois do enter adicionar na lista de mensagem.
+   - useStage, alterar o estado da pagina adicionando a lista.
+
+
+   Porra se liga no, banco de dados web free:
+    https://app.supabase.io/project/abybbpoxyzvfsiadhthk
