@@ -1,10 +1,7 @@
 import { Box, Button, Text, TextField, Image } from '@skynexui/components';
-import appConfig from '../config.json';
 import React from 'react';
-import {useRouter} from 'next/router'; // padrão do react, è um Hook para alteração de evento a nomeclatura segue o padrão de useEvent
-
-
-
+import { useRouter } from 'next/router';
+import appConfig from '../config.json';
 
 function Titulo(props) {
   const Tag = props.tag || 'h1';
@@ -36,18 +33,12 @@ function Titulo(props) {
 // export default HomePage
 
 export default function PaginaInicial() {
-  //const username = 'Bernardoaugustot';  
-  // Prcisamos trabalhar na variavel para ela ser mutavel, caso contrario o react não entende que o estado do value mude.
-  const [username, setUsername] = React.useState('teste'); //Essa porra é importante
-  // Essa porra [username, setUsername] quer dizer [Oque esta mudando, Quem eu devo Avisar que as coisa mudaram]
-  // Termo de Observer = Observadores = Beholder
-  // *Importar o React Né campeão
+  // const username = 'omariosouto';
+  const [username, setUsername] = React.useState('Bernardoaugustot');
   const roteamento = useRouter();
-  // console.log <-- para conseguir as informações da pag.
 
   return (
     <>
-      
       <Box
         styleSheet={{
           display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -74,12 +65,12 @@ export default function PaginaInicial() {
           {/* Formulário */}
           <Box
             as="form"
-            onSubmit ={ function(infosDoEvento){ // Toda vez que houver um submite essa function serra desencadeada.
+            onSubmit={function (infosDoEvento) {
               infosDoEvento.preventDefault();
-              console.log("Alguem mexeu no meu bolo");
-              //window.location.href = '/chat' // forma tradicional de mudar chat.
-              // Agora usando o sistema do Next, para usar reaproveitamento de elementos das paginas.
-              roteamento.push('/chat');
+              console.log('Alguém submeteu o form');
+              // roteamento.push('/chat?username=' + username);
+              roteamento.push(`/chat?username=${username}`);
+              // window.location.href = '/chat';
             }}
             styleSheet={{
               display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
@@ -90,30 +81,29 @@ export default function PaginaInicial() {
             <Text variant="body3" styleSheet={{ marginBottom: '32px', color: appConfig.theme.colors.neutrals[300] }}>
               {appConfig.name}
             </Text>
-            
+
             {/* <input
-              typer="texte"
+                            type="text"
+                            value={username}
+                            onChange={function (event) {
+                                console.log('usuario digitou', event.target.value);
+                                // Onde ta o valor?
+                                const valor = event.target.value;
+                                // Trocar o valor da variavel
+                                // através do React e avise quem precisa
+                                setUsername(valor);
+                            }}
+                        /> */}
+            <TextField
               value={username}
-              onChange={ function(event){
-                console.log('usuario digitio',event.target.value);
-                // Trocar o valor
-                const valor = event.target.value
-                // Valore entrara, como value do imput
-                //Trocando os valores atravez do React, e avisando so Beholders
+              onChange={function (event) {
+                console.log('usuario digitou', event.target.value);
+                // Onde ta o valor?
+                const valor = event.target.value;
+                // Trocar o valor da variavel
+                // através do React e avise quem precisa
                 setUsername(valor);
               }}
-            /> */}
- 
-            <TextField
-             value={username}
-             onChange={ function(event){
-               console.log('usuario digitio',event.target.value);
-               // Trocar o valor
-               const valor = event.target.value
-               // Valore entrara, como value do imput
-               //Trocando os valores atravez do React, e avisando so Beholders
-               setUsername(valor);
-             }}
               fullWidth
               textFieldColors={{
                 neutral: {
@@ -123,7 +113,7 @@ export default function PaginaInicial() {
                   backgroundColor: appConfig.theme.colors.neutrals[800],
                 },
               }}
-            /> 
+            />
             <Button
               type='submit'
               label='Entrar'
@@ -161,7 +151,6 @@ export default function PaginaInicial() {
                 marginBottom: '16px',
               }}
               src={`https://github.com/${username}.png`}
-              //src={`https://media.gazetadopovo.com.br/viver-bem/2018/11/dog3-600x459-0e01be20.jpg`}
             />
             <Text
               variant="body4"
